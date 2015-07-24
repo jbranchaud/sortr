@@ -36,11 +36,11 @@ module Sortr
 
   private
 
-  # given two valid positions in an array, swap the values at those positions
-  def self.swap(array,a,b)
-    temp = array[a]
-    array[a] = array[b]
-    array[b] = temp
+  # given two valid positions in an collection, swap the values at those positions
+  def self.swap(collection,a,b)
+    temp = collection[a]
+    collection[a] = collection[b]
+    collection[b] = temp
   end
 
   def self.is_sortable?(collection)
