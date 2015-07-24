@@ -18,6 +18,11 @@ describe Sortr do
       end
     end
 
+    context 'when given a non-sortable object' do
+      it 'should raise an error' do
+        expect{ Sortr.sort(nil) }.to raise_error Sortr::NonSortableError
+      end
+    end
   end
 
   describe '#insertion_sort' do

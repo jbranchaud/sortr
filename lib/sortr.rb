@@ -2,8 +2,10 @@ require "sortr/version"
 
 module Sortr
 
+  class NonSortableError < StandardError; end
 
   def self.sort(collection)
+    raise NonSortableError unless is_sortable?(collection)
     collection.sort
   end
 
@@ -39,6 +41,12 @@ module Sortr
     temp = array[a]
     array[a] = array[b]
     array[b] = temp
+  end
+
+  def self.is_sortable?(collection)
+    [:[], :[]=, :size].reduce(true) do |assoc,method|
+      assoc && collection.respond_to?(method)
+    end
   end
 
 end
