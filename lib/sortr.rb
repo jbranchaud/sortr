@@ -11,6 +11,7 @@ module Sortr
 
   # perform an insertion sort on the given collection
   def self.insertion_sort(collection)
+    raise NonSortableError unless is_sortable?(collection)
     collection.size.times do |i|
       j = i
       while j > 0 && collection[j-1] > collection[j]
@@ -23,6 +24,7 @@ module Sortr
 
   # perform a selection sort on the given collection
   def self.selection_sort(collection)
+    raise NonSortableError unless is_sortable?(collection)
     (collection.size - 1).times do |i|
       min = i
       ((i+1)...collection.size).each do |j|
