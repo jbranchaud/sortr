@@ -5,7 +5,21 @@ describe Sortr do
     expect(Sortr::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe '#sort' do
+    context 'when given an empty array' do
+      it 'should return an empty array' do
+        expect(Sortr.sort([])).to eq []
+      end
+    end
+
+    context 'when given an unsorted array' do
+      it 'should return a sorted array' do
+        expect(Sortr.sort([4,2,3,1])).to eq [1,2,3,4]
+      end
+    end
   end
+
+  # it 'does something useful' do
+  #   expect(false).to eq(true)
+  # end
 end

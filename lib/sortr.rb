@@ -1,5 +1,9 @@
 require "sortr/version"
 
 module Sortr
-  # Your code goes here...
+
+  def self.sort(collection)
+    collection.sort
+  end
+
 end
