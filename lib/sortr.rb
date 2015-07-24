@@ -21,6 +21,19 @@ module Sortr
     collection
   end
 
+  # perform a selection sort on the given collection
+  def self.selection_sort(collection)
+    (collection.size - 1).times do |i|
+      min = i
+      ((i+1)...collection.size).each do |j|
+        min = j if collection[j] < collection[min]
+      end
+
+      swap(collection,i,min) if min != i
+    end
+    collection
+  end
+
   private
 
   # given two valid positions in an array, swap the values at those positions
