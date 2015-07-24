@@ -17,6 +17,12 @@ describe Sortr do
         expect(Sortr.sort([4,2,3,1])).to eq [1,2,3,4]
       end
     end
+
+    context 'when given a non-enumerable object' do
+      it 'should raise an error' do
+        expect{ Sortr.sort(nil) }.to raise_error Sortr::NonEnumerableError
+      end
+    end
   end
 
   # it 'does something useful' do
